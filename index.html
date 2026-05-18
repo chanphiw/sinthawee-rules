@@ -24,7 +24,7 @@
     }
 
     .poster {
-      width: 520px;
+      width: min(1100px, 100%);
       background: #e8f5ec;
       border-radius: 24px;
       overflow: hidden;
@@ -132,6 +132,10 @@
     .body {
       padding: 22px 18px 10px;
       background: linear-gradient(180deg, #e5f4ea 0%, #f0f9f3 100%);
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      align-items: start;
     }
 
     /* ===== RULE CARD ===== */
@@ -141,7 +145,7 @@
       gap: 0;
       background: #ffffff;
       border-radius: 18px;
-      margin-bottom: 12px;
+      margin-bottom: 0;
       overflow: hidden;
       box-shadow: 0 2px 12px rgba(30, 100, 60, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
       border: 1px solid rgba(60, 160, 100, 0.15);
@@ -388,10 +392,11 @@
     .speed-rule {
       background: linear-gradient(135deg, #1a4731 0%, #2d7a52 100%);
       border-radius: 18px;
-      margin-bottom: 12px;
+      margin-bottom: 0;
       overflow: hidden;
       box-shadow: 0 4px 20px rgba(20, 80, 40, 0.2);
       position: relative;
+      grid-column: 1 / -1;
     }
 
     .speed-inner {
@@ -546,6 +551,55 @@
       color: rgba(255, 255, 255, 0.35);
       margin-top: 8px;
       letter-spacing: 1px;
+    }
+
+    @media (max-width: 900px) {
+      .body {
+        grid-template-columns: 1fr;
+      }
+
+      .speed-rule {
+        grid-column: auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 14px 8px;
+      }
+
+      .poster {
+        border-radius: 18px;
+      }
+
+      .header {
+        padding: 28px 18px 32px;
+      }
+
+      .header h1 {
+        font-size: 30px;
+      }
+
+      .body {
+        padding: 16px 12px;
+        gap: 10px;
+      }
+
+      .rule-inner {
+        gap: 10px;
+        padding: 14px 12px 14px 18px;
+      }
+
+      .icon-wrap {
+        width: 52px;
+        height: 52px;
+        font-size: 24px;
+      }
+
+      .speed-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
