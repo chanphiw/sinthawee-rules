@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ระเบียบหมู่บ้านสินทวี การ์เด้นท์ 1</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'IBM Plex Sans Thai', 'IBM Plex Sans', sans-serif;
+      background: #d4eadc;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 20px 10px;
+    }
+
+    .poster {
+      width: 520px;
+      background: #e8f5ec;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 16px 60px rgba(20, 80, 40, 0.22);
+      position: relative;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      position: relative;
+      background: linear-gradient(175deg, #1a4731 0%, #2d7a52 40%, #3a9e6a 70%, #56c187 100%);
+      padding: 36px 28px 40px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .header-bg-circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .hc1 {
+      width: 260px;
+      height: 260px;
+      top: -100px;
+      right: -80px;
+    }
+
+    .hc2 {
+      width: 180px;
+      height: 180px;
+      bottom: -60px;
+      left: -50px;
+    }
+
+    .hc3 {
+      width: 120px;
+      height: 120px;
+      top: 20px;
+      left: 30px;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 20px;
+      padding: 5px 14px;
+      margin-bottom: 14px;
+      font-size: 10px;
+      font-weight: 600;
+      color: #b7eecb;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-family: 'IBM Plex Sans', sans-serif;
+    }
+
+    .header-icon {
+      font-size: 52px;
+      margin-bottom: 10px;
+      display: block;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+    }
+
+    .header h1 {
+      font-size: 34px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+      margin-bottom: 6px;
+    }
+
+    .header h1 em {
+      font-style: normal;
+      color: #c8f5d8;
+    }
+
+    .header-en {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(200, 245, 216, 0.85);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .header-tagline {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 7px 18px;
+      font-size: 11.5px;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.5;
+    }
+
+    /* ===== BODY ===== */
+    .body {
+      padding: 22px 18px 10px;
+      background: linear-gradient(180deg, #e5f4ea 0%, #f0f9f3 100%);
+    }
+
+    /* ===== RULE CARD ===== */
+    .rule {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      background: #ffffff;
+      border-radius: 18px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(30, 100, 60, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(60, 160, 100, 0.15);
+      position: relative;
+    }
+
+    .rule-accent {
+      width: 6px;
+      flex-shrink: 0;
+      background: linear-gradient(180deg, #2d7a52, #56c187);
+      border-radius: 0;
+    }
+
+    .rule.alt .rule-accent {
+      background: linear-gradient(180deg, #0a7a7a, #2abfbf);
+    }
+
+    .rule.warn .rule-accent {
+      background: linear-gradient(180deg, #c47c10, #f0b429);
+    }
+
+    .rule.alert .rule-accent {
+      background: linear-gradient(180deg, #c0392b, #e74c3c);
+    }
+
+    .rule.indigo .rule-accent {
+      background: linear-gradient(180deg, #3a5296, #6b8de3);
+    }
+
+    .rule.olive .rule-accent {
+      background: linear-gradient(180deg, #5a6e1f, #8ab033);
+    }
+
+    .num-bubble {
+      position: absolute;
+      top: -1px;
+      left: 5px;
+      width: 26px;
+      height: 26px;
+      background: linear-gradient(135deg, #1a4731, #2d7a52);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      font-family: 'IBM Plex Sans', sans-serif;
+      box-shadow: 0 2px 6px rgba(20, 80, 40, 0.3);
+      z-index: 2;
+    }
+
+    .rule.alt .num-bubble {
+      background: linear-gradient(135deg, #0a5050, #0a9396);
+    }
+
+    .rule.warn .num-bubble {
+      background: linear-gradient(135deg, #7a4500, #c47c10);
+    }
+
+    .rule.alert .num-bubble {
+      background: linear-gradient(135deg, #7a1a10, #c0392b);
+    }
+
+    .rule.indigo .num-bubble {
+      background: linear-gradient(135deg, #253370, #3a5296);
+    }
+
+    .rule.olive .num-bubble {
+      background: linear-gradient(135deg, #384415, #5a6e1f);
+    }
+
+    .rule-inner {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 16px 16px 20px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .icon-wrap {
+      width: 62px;
+      height: 62px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 30px;
+      background: #eaf7ee;
+      position: relative;
+    }
+
+    .rule.alt .icon-wrap {
+      background: #e0f6f6;
+    }
+
+    .rule.warn .icon-wrap {
+      background: #fef5e4;
+    }
+
+    .rule.alert .icon-wrap {
+      background: #fdecea;
+    }
+
+    .rule.indigo .icon-wrap {
+      background: #eaeefc;
+    }
+
+    .rule.olive .icon-wrap {
+      background: #eef3dc;
+    }
+
+    .rule-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .rule-title-th {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a3020;
+      line-height: 1.3;
+      margin-bottom: 1px;
+    }
+
+    .rule-title-en {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #3a9e6a;
+      margin-bottom: 6px;
+    }
+
+    .rule.alt .rule-title-en {
+      color: #0a7a7a;
+    }
+
+    .rule.warn .rule-title-en {
+      color: #b06010;
+    }
+
+    .rule.alert .rule-title-en {
+      color: #b03020;
+    }
+
+    .rule.indigo .rule-title-en {
+      color: #3a5296;
+    }
+
+    .rule.olive .rule-title-en {
+      color: #5a6e1f;
+    }
+
+    .rule-desc-th {
+      font-size: 12.5px;
+      font-weight: 400;
+      color: #2c4a36;
+      line-height: 1.65;
+      margin-bottom: 3px;
+    }
+
+    .rule-desc-en {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 11px;
+      font-style: italic;
+      color: #6a9a7a;
+      line-height: 1.5;
+      border-left: 2.5px solid #b7e4c7;
+      padding-left: 7px;
+      margin-bottom: 5px;
+    }
+
+    .rule.alt .rule-desc-en {
+      border-color: #a0dede;
+      color: #2a7a7a;
+    }
+
+    .rule.warn .rule-desc-en {
+      border-color: #f0d090;
+      color: #806020;
+    }
+
+    .rule.alert .rule-desc-en {
+      border-color: #f0b0aa;
+      color: #903020;
+    }
+
+    .rule.indigo .rule-desc-en {
+      border-color: #b0bef5;
+      color: #3a4a90;
+    }
+
+    .rule.olive .rule-desc-en {
+      border-color: #c8d890;
+      color: #4a5820;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 20px;
+      margin-top: 2px;
+    }
+
+    .tag-green {
+      background: #d4f0de;
+      color: #1a5530;
+    }
+
+    .tag-teal {
+      background: #d0f0f0;
+      color: #0a5050;
+    }
+
+    .tag-amber {
+      background: #fdf0d0;
+      color: #704000;
+    }
+
+    .tag-red {
+      background: #fde8e5;
+      color: #801a10;
+    }
+
+    .tag-blue {
+      background: #e0eafc;
+      color: #203070;
+    }
+
+    .tag-olive {
+      background: #eaf0d0;
+      color: #384010;
+    }
+
+    /* ===== SPEED LIMIT SPECIAL ===== */
+    .speed-rule {
+      background: linear-gradient(135deg, #1a4731 0%, #2d7a52 100%);
+      border-radius: 18px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(20, 80, 40, 0.2);
+      position: relative;
+    }
+
+    .speed-inner {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 20px;
+    }
+
+    .speed-sign {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #fff;
+      border: 4px solid #56c187;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    }
+
+    .speed-sign .speed-num {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: #1a4731;
+      line-height: 1;
+    }
+
+    .speed-sign .speed-unit {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      color: #2d7a52;
+      letter-spacing: 0.5px;
+    }
+
+    .speed-text {
+      flex: 1;
+    }
+
+    .speed-num-badge {
+      width: 28px;
+      height: 28px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      font-family: 'IBM Plex Sans', sans-serif;
+      margin-bottom: 6px;
+    }
+
+    .speed-title-th {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.3;
+      margin-bottom: 1px;
+    }
+
+    .speed-title-en {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: rgba(200, 245, 216, 0.75);
+      margin-bottom: 6px;
+    }
+
+    .speed-desc-th {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.6;
+      margin-bottom: 3px;
+    }
+
+    .speed-desc-en {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 10.5px;
+      font-style: italic;
+      color: rgba(200, 245, 216, 0.75);
+      line-height: 1.45;
+      border-left: 2px solid rgba(255, 255, 255, 0.3);
+      padding-left: 7px;
+      margin-bottom: 6px;
+    }
+
+    .speed-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #fff;
+      padding: 3px 10px;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: linear-gradient(135deg, #1a4731, #2d7a52);
+      padding: 18px 24px;
+      text-align: center;
+    }
+
+    .footer-divider {
+      width: 60px;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 2px;
+      margin: 0 auto 12px;
+    }
+
+    .footer-icon {
+      font-size: 22px;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .footer-main {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #b7eecb;
+      margin-bottom: 3px;
+    }
+
+    .footer-sub {
+      font-size: 11.5px;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 8px;
+    }
+
+    .footer-thanks {
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .footer-year {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.35);
+      margin-top: 8px;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div class="poster">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="header-bg-circle hc1"></div>
+      <div class="header-bg-circle hc2"></div>
+      <div class="header-bg-circle hc3"></div>
+
+      <div class="header-badge">🏡 ระเบียบและข้อกำหนด</div>
+      <span class="header-icon">🏠</span>
+      <h1>หมู่บ้าน<em>สินทวี<br>การ์เด้นท์ 1</em></h1>
+      <div class="header-en">Sinthawee Garden 1</div>
+      <div class="header-tagline">
+        เพื่อความสุข ความปลอดภัย และความเป็นระเบียบเรียบร้อยของชุมชน
+      </div>
+    </div>
+
+    <!-- RULES -->
+    <div class="body">
+
+      <!-- 01 Construction -->
+      <div class="rule">
+        <div class="rule-accent"></div>
+        <div class="num-bubble">1</div>
+        <div class="rule-inner">
+          <div class="icon-wrap">🔨</div>
+          <div class="rule-text">
+            <div class="rule-title-th">การตกแต่ง / ต่อเติมอาคาร</div>
+            <div class="rule-title-en">Construction &amp; Renovation</div>
+            <div class="rule-desc-th">อนุญาตเฉพาะ วันจันทร์ – เสาร์<br>งดวันอาทิตย์และวันหยุดนักขัตฤกษ์</div>
+            <div class="rule-desc-en">Mon–Sat only. No work on Sundays or public holidays.</div>
+            <span class="tag tag-green">🕗 08:00 – 17:30 น. เท่านั้น</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 Waste -->
+      <div class="rule alt">
+        <div class="rule-accent"></div>
+        <div class="num-bubble">2</div>
+        <div class="rule-inner">
+          <div class="icon-wrap">🚛</div>
+          <div class="rule-text">
+            <div class="rule-title-th">ขนย้ายเศษวัสดุเอง</div>
+            <div class="rule-title-en">Construction Waste Removal</div>
+            <div class="rule-desc-th">เจ้าของบ้าน / ผู้รับเหมารับผิดชอบขนย้ายและกำจัดเศษวัสดุและสุขภัณฑ์เก่าด้วยตนเอง
+            </div>
+            <div class="rule-desc-en">Owners/contractors must remove all debris themselves.</div>
+            <span class="tag tag-red">🚫 ห้ามทิ้งพื้นที่ส่วนกลางโดยเด็ดขาด</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 Party -->
+      <div class="rule warn">
+        <div class="rule-accent"></div>
+        <div class="num-bubble">3</div>
+        <div class="rule-inner">
+          <div class="icon-wrap">🎉</div>
+          <div class="rule-text">
+            <div class="rule-title-th">งานเลี้ยง / กิจกรรมสังสรรค์</div>
+            <div class="rule-title-en">Parties &amp; Social Events</div>
+            <div class="rule-desc-th">ดำเนินกิจกรรมได้ไม่เกิน 22:00 น.<br>หากจำเป็นเกินเวลา กรุณาแจ้งส่วนกลาง</div>
+            <div class="rule-desc-en">Must end by 10 PM. Notify management if running later.</div>
+            <span class="tag tag-amber">📢 แจ้งล่วงหน้าอย่างน้อย 1 วัน</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 Garden waste -->
+      <div class="rule">
+        <div class="rule-accent"></div>
+        <div class="num-bubble">4</div>
+        <div class="rule-inner">
+          <div class="icon-wrap">🌿</div>
+          <div class="rule-text">
+            <div class="rule-title-th">กิ่งไม้ / เศษใบไม้</div>
+            <div class="rule-title-en">Garden &amp; Leaf Waste</div>
+            <div class="rule-desc-th">ตัด / ย่อยขนาดให้เหมาะสม ใส่ถุงดำ ผูกปากถุงให้เรียบร้อย นำทิ้งจุดที่กำหนด</div>
+            <div class="rule-desc-en">Trim, bag in black bags, tie securely, dispose at designated spots.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 Pool -->
+      <div class="rule alt">
+        <div class="rule-accent"></div>
+        <div class="num-bubble">5</div>
+        <div class="rule-inner">
+          <div class="icon-wrap">🏊</div>
+          <div class="rule-text">
+            <div class="rule-title-th">สระว่ายน้ำ</div>
+            <div class="rule-title-en">Swimming Pool — Free for Members</div>
+            <div class="rule-desc-th">สมาชิกเข้าใช้ฟรี ปฏิบัติตามกฎระเบียบสระอย่างเคร่งครัด</div>
+            <div class="rule-desc-en">Free for residents. Pool rules must be strictly observed.</div>
+            <span class="tag tag-teal">🌅 เปิด 06:00 – 20:00 น.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 06 Pets -->
+      <div class="rule indigo">
+        <div class="rule-accent"></div>
+        <div class="num-bubble">6</div>
+        <div class="rule-inner">
+          <div class="icon-wrap">🐾</div>
+          <div class="rule-text">
+            <div class="rule-title-th">สัตว์เลี้ยง</div>
+            <div class="rule-title-en">Pets</div>
+            <div class="rule-desc-th">ขอความร่วมมือในการควบคุมไม่ให้เสียงดัง ไม่ปล่อยลำพังในพื้นที่ส่วนกลาง
+              ไม่ปล่อยให้ขับถ่ายในพื้นที่ส่วนกลางหรือหน้าบ้านผู้อื่น</div>
+            <div class="rule-desc-en">Keep leashed. No fouling common areas or neighbors' property.</div>
+            <span class="tag tag-red">⚠️ ต้องเก็บทำความสะอาดทันที</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 07 Boundary -->
+      <div class="rule olive">
+        <div class="rule-accent"></div>
+        <div class="num-bubble">7</div>
+        <div class="rule-inner">
+          <div class="icon-wrap">🏠</div>
+          <div class="rule-text">
+            <div class="rule-title-th">ใช้พื้นที่ในเขตบ้าน</div>
+            <div class="rule-title-en">Property Boundaries</div>
+            <div class="rule-desc-th">กิจกรรมต่างๆ ต้องอยู่ภายในรั้วบ้านของตนเอง ไม่ล่วงล้ำพื้นที่ส่วนกลาง</div>
+            <div class="rule-desc-en">All activities must stay within your own property boundary.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 08 Parking -->
+      <div class="rule alert">
+        <div class="rule-accent"></div>
+        <div class="num-bubble">8</div>
+        <div class="rule-inner">
+          <div class="icon-wrap">🚗</div>
+          <div class="rule-text">
+            <div class="rule-title-th">ขอความร่วมมือไม่จอดรถกีดขวาง</div>
+            <div class="rule-title-en">No Obstructive Parking</div>
+            <div class="rule-desc-th">ขอความร่วมมือไม่จอดหน้าบ้านผู้อื่น ห้ามจอดบดบังทัศนวิสัยการจราจร</div>
+            <div class="rule-desc-en">Do not block neighbors' driveways or obstruct traffic visibility.</div>
+            <span class="tag tag-red">🚫 เพื่อความปลอดภัยส่วนรวม</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 09 Tree trimming -->
+      <div class="rule">
+        <div class="rule-accent"></div>
+        <div class="num-bubble">9</div>
+        <div class="rule-inner">
+          <div class="icon-wrap">✂️</div>
+          <div class="rule-text">
+            <div class="rule-title-th">ตัดแต่งกิ่งไม้</div>
+            <div class="rule-title-en">Tree Trimming</div>
+            <div class="rule-desc-th">ตัดส่วนที่ยื่นไปบ้านเพื่อนบ้าน ลดใบไม้ร่วง / กิ่งหักโค่น ใส่ทรัพย์สินผู้อื่น</div>
+            <div class="rule-desc-en">Trim overhanging branches to prevent damage to neighbors' property.</div>
+            <span class="tag tag-olive">🌳 รักษาความสัมพันธ์อันดี</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10 Speed — special card -->
+      <div class="speed-rule">
+        <div class="speed-inner">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;flex-shrink:0;">
+            <div class="speed-sign">
+              <span class="speed-num">30</span>
+              <span class="speed-unit">km/h</span>
+            </div>
+            <div style="font-size:28px;">🚦</div>
+          </div>
+          <div class="speed-text">
+            <div class="speed-num-badge">10</div>
+            <div class="speed-title-th">จำกัดความเร็วในหมู่บ้าน</div>
+            <div class="speed-title-en">Speed Limit Within Village</div>
+            <div class="speed-desc-th">ไม่เกิน 30 กม./ชม. ตลอดเส้นทาง เนื่องจากมีสมาชิกออกกำลังกายและเด็กๆ
+              ปั่นจักรยานตลอดวัน</div>
+            <div class="speed-desc-en">Max 30 km/h. Residents walk &amp; children cycle — please drive with care.</div>
+            <span class="speed-tag">⚠️ เพื่อความปลอดภัยของทุกคน</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /body -->
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="footer-divider"></div>
+      <span class="footer-icon">🙏</span>
+      <div class="footer-main">ประกาศโดยคณะอาสากรรมการหมู่บ้าน</div>
+      <div class="footer-sub">ขอความร่วมมือจากสมาชิกทุกท่าน</div>
+      <div class="footer-thanks">ขอบคุณที่ให้ความร่วมมือ</div>
+      <div class="footer-year">SINTHAWEE GARDEN 1 · 2026</div>
+    </div>
+
+  </div>
+</body>
+</html>
