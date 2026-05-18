@@ -388,178 +388,65 @@
       color: #384010;
     }
 
-    /* ===== SPEED LIMIT SPECIAL ===== */
-    .speed-rule {
-      background: linear-gradient(135deg, #1a4731 0%, #2d7a52 100%);
-      border-radius: 18px;
-      margin-bottom: 0;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(20, 80, 40, 0.2);
-      position: relative;
-      grid-column: 1 / -1;
-    }
-
-    .speed-inner {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 18px 20px;
-    }
-
-    .speed-sign {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      background: #fff;
-      border: 4px solid #56c187;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      flex-shrink: 0;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-    }
-
-    .speed-sign .speed-num {
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 24px;
-      font-weight: 800;
-      color: #1a4731;
-      line-height: 1;
-    }
-
-    .speed-sign .speed-unit {
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 9px;
-      font-weight: 700;
-      color: #2d7a52;
-      letter-spacing: 0.5px;
-    }
-
-    .speed-text {
-      flex: 1;
-    }
-
-    .speed-num-badge {
-      width: 28px;
-      height: 28px;
-      background: rgba(255, 255, 255, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 700;
-      color: #fff;
-      font-family: 'IBM Plex Sans', sans-serif;
-      margin-bottom: 6px;
-    }
-
-    .speed-title-th {
-      font-size: 15px;
-      font-weight: 700;
-      color: #ffffff;
-      line-height: 1.3;
-      margin-bottom: 1px;
-    }
-
-    .speed-title-en {
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      color: rgba(200, 245, 216, 0.75);
-      margin-bottom: 6px;
-    }
-
-    .speed-desc-th {
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.88);
-      line-height: 1.6;
-      margin-bottom: 3px;
-    }
-
-    .speed-desc-en {
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 10.5px;
-      font-style: italic;
-      color: rgba(200, 245, 216, 0.75);
-      line-height: 1.45;
-      border-left: 2px solid rgba(255, 255, 255, 0.3);
-      padding-left: 7px;
-      margin-bottom: 6px;
-    }
-
-    .speed-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      background: rgba(255, 255, 255, 0.18);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 20px;
-      font-size: 11px;
-      font-weight: 600;
-      color: #fff;
-      padding: 3px 10px;
-    }
-
     /* ===== FOOTER ===== */
     .footer {
       background: linear-gradient(135deg, #1a4731, #2d7a52);
-      padding: 18px 24px;
-      text-align: center;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+      overflow-x: auto;
     }
 
     .footer-divider {
-      width: 60px;
+      width: 24px;
       height: 2px;
       background: rgba(255, 255, 255, 0.25);
       border-radius: 2px;
-      margin: 0 auto 12px;
+      margin: 0;
+      flex-shrink: 0;
     }
 
     .footer-icon {
-      font-size: 22px;
-      margin-bottom: 6px;
-      display: block;
+      font-size: 16px;
+      margin: 0;
+      display: inline-flex;
+      flex-shrink: 0;
     }
 
     .footer-main {
-      font-size: 12.5px;
+      font-size: 11.5px;
       font-weight: 600;
       color: #b7eecb;
-      margin-bottom: 3px;
+      margin: 0;
     }
 
     .footer-sub {
-      font-size: 11.5px;
+      font-size: 11px;
       color: rgba(255, 255, 255, 0.6);
-      margin-bottom: 8px;
+      margin: 0;
     }
 
     .footer-thanks {
-      font-size: 13px;
+      font-size: 11.5px;
       font-weight: 700;
       color: #ffffff;
+      margin: 0;
     }
 
     .footer-year {
       font-family: 'IBM Plex Sans', sans-serif;
       font-size: 10px;
       color: rgba(255, 255, 255, 0.35);
-      margin-top: 8px;
+      margin: 0;
       letter-spacing: 1px;
+      margin-left: auto;
     }
 
     @media (max-width: 900px) {
       .body {
         grid-template-columns: 1fr;
-      }
-
-      .speed-rule {
-        grid-column: auto;
       }
     }
 
@@ -596,10 +483,6 @@
         font-size: 24px;
       }
 
-      .speed-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
     }
   </style>
 </head>
@@ -768,24 +651,19 @@
         </div>
       </div>
 
-      <!-- 10 Speed — special card -->
-      <div class="speed-rule">
-        <div class="speed-inner">
-          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;flex-shrink:0;">
-            <div class="speed-sign">
-              <span class="speed-num">30</span>
-              <span class="speed-unit">km/h</span>
-            </div>
-            <div style="font-size:28px;">🚦</div>
-          </div>
-          <div class="speed-text">
-            <div class="speed-num-badge">10</div>
-            <div class="speed-title-th">จำกัดความเร็วในหมู่บ้าน</div>
-            <div class="speed-title-en">Speed Limit Within Village</div>
-            <div class="speed-desc-th">ไม่เกิน 30 กม./ชม. ตลอดเส้นทาง เนื่องจากมีสมาชิกออกกำลังกายและเด็กๆ
+      <!-- 10 Speed -->
+      <div class="rule warn">
+        <div class="rule-accent"></div>
+        <div class="num-bubble">10</div>
+        <div class="rule-inner">
+          <div class="icon-wrap">🚗 🛵</div>
+          <div class="rule-text">
+            <div class="rule-title-th">จำกัดความเร็วในหมู่บ้าน</div>
+            <div class="rule-title-en">Speed Limit Within Village</div>
+            <div class="rule-desc-th">ไม่เกิน 30 กม./ชม. ตลอดเส้นทาง เนื่องจากมีสมาชิกออกกำลังกายและเด็กๆ
               ปั่นจักรยานตลอดวัน</div>
-            <div class="speed-desc-en">Max 30 km/h. Residents walk &amp; children cycle — please drive with care.</div>
-            <span class="speed-tag">⚠️ เพื่อความปลอดภัยของทุกคน</span>
+            <div class="rule-desc-en">Max 30 km/h. Residents walk &amp; children cycle, please drive with care.</div>
+            <span class="tag tag-amber">🚗 30 กม./ชม. เพื่อความปลอดภัยของทุกคน</span>
           </div>
         </div>
       </div>
